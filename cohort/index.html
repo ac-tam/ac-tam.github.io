@@ -1,0 +1,102 @@
+<body>
+    <div class = "textbox">
+        Test a future date:
+        <input type = "text" id = "month" oninput="a()" placeholder="Month ">
+        <input type = "text" id = "date" oninput="a()" placeholder = "Date">
+        <input type = "text" id = 'year' oninput="a()" placeholder = "Year " value = "2020" disabled="disabled">
+        <div id = "ans" style = "font-size: 130px; font-family: sans-serif;"></div>
+    </div>
+    <script>
+        var b = new Date()
+
+        document.getElementById("ans").innerHTML = (b.getMonth() + 1) +"/" + b.getDate() + " is Cohort " + ABC(schoolDate(b.getMonth() + 1, b.getDate(), 2020));
+
+        function a() {
+            var month = parseInt(document.getElementById("month").value)
+            var year = parseInt(document.getElementById("year").value)
+            var date = parseInt(document.getElementById("date").value)
+
+            if (month + "" !== "NaN" && date + "" !== "NaN") 
+            document.getElementById("ans").innerHTML = month + "/" + date + " is Cohort " + ABC(schoolDate(month, date, year));
+       }
+   
+
+
+    function dayOfYear(now) {
+        var start = new Date(now.getFullYear(), 0, 0);
+        return Math.floor(((now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000) )/ 86400000);
+    }
+
+    function schoolDate(m, d, y) {
+        var weekends = dayOfYear(new Date(y, m -1, d - 1)) - dayOfYear(new Date(2020, 8, 20)) 
+
+        return weekends - Math.floor(weekends / 7) * 2- holidays(new Date(y, m -1, d - 1))
+    }
+
+    function holidays(date) {
+        var holidaysArr = [
+            new Date(2020, 8, 19),
+            new Date(2020, 8, 27),
+            new Date(2020, 9, 11),
+            new Date(2020, 10, 2),
+            new Date(2020, 10, 25),
+            new Date(2020, 10, 26),
+            new Date(2020, 10, 26),
+            new Date(2020, 11, 23),
+            new Date(2020, 11, 24),
+            new Date(2020, 11, 25),
+            new Date(2020, 11, 26),
+            new Date(2020, 11, 27),
+            new Date(2020, 11, 28),
+            new Date(2020, 11, 29),
+            new Date(2020, 11, 30),
+            new Date(2021, 0, 0),
+            new Date(2021, 0, 17)
+
+
+        ]
+
+        for (var i = holidaysArr.length - 1; i > -1 ; i--)
+            if (holidaysArr[i].getTime() == date.getTime());
+            else if (holidaysArr[i].getTime() < date.getTime())  
+                return i
+
+    }
+
+
+    function ABC(date) {
+        switch (date % 6) {
+            case 1 - 1: 
+                return "A EVEN" 
+
+            case 2 - 1: 
+                return "A ODD "
+            case 3 - 1: 
+                return "B EVEN" 
+
+            case 4 - 1: 
+                return "B ODD"
+            case 5 - 1: 
+                return "C EVEN"
+
+            case 6 - 1: 
+                return "C ODD"
+        
+        }
+        return "(No school)"
+    }
+    </script>
+</body>
+
+<style>
+    .textbox {
+        width: 1200px;
+        padding-top: 200px ;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    input {
+        width: 50px;
+    }
+
+</style>
