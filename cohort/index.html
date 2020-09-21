@@ -65,12 +65,12 @@
 
     <script>
         function writeCookie() {
-            document.cookie = `${document.getElementById("1odd").value};${document.getElementById("1even").value};${document.getElementById("2odd").value};${document.getElementById("2even").value};${document.getElementById("3odd").value};${document.getElementById("3even").value};${document.getElementById("4odd").value};${document.getElementById("4even").value};`
+            document.cookie = `${document.getElementById("1odd").value}'${document.getElementById("1even").value}'${document.getElementById("2odd").value}'${document.getElementById("2even").value}'${document.getElementById("3odd").value}'${document.getElementById("3even").value}'${document.getElementById("4odd").value}'${document.getElementById("4even").value}'`
         }
 
         function readCookie() {
-            var arr = document.cookie.split(";")
-            console.log(arr);
+            var arr = document.cookie.split("'")
+            console.log(arr)'
         }
 
         readCookie();
