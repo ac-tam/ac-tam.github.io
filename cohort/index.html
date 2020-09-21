@@ -35,7 +35,7 @@
 
             <tr>
                 <td>1</td>
-                <td><input type = "text" id = "1odd"></td>
+                <td style="background-color: rgba(144, 238, 144, 0.384)"><input type = "text" id = "1odd" style="background-color: rgba(144, 238, 144, 0.384)"></td>
                 <td><input type = "text" id = "1even"></td>
             </tr>
             <tr>
@@ -75,6 +75,7 @@
             ${document.getElementById("4odd").value};
             ${document.getElementById("4even").value};
             `
+            console.log(document.cookie)
         }
 
         function readCookie() {
