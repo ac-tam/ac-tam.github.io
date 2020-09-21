@@ -51,7 +51,7 @@
             <tr>
                 <td>1</td>
                 <td><input type = "text" id = "4odd"></td>
-                <td><input type = "text" id = "4even"></td>
+                <td><input type = "text" id = "4even" oninput="writeCookie()"></td>
             </tr>
             
         </table>
@@ -81,6 +81,8 @@
             var arr = document.cookie.split(";")
             console.log(arr);
         }
+
+        readCookie();
 
         var b = new Date()
 
