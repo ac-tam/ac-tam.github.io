@@ -1,12 +1,87 @@
+<style>
+    table, th, td, tr {
+        border: 1px solid black;
+        border-collapse: collapse;
+
+    }
+
+    td {
+        width: 300px;
+        height: 50px;
+    }
+
+    table input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            font-size: 12px;
+    }
+
+</style>
 <body>
     <div class = "textbox">
         Test a future date:
         <input type = "text" id = "month" oninput="a()" placeholder="Month ">
         <input type = "text" id = "date" oninput="a()" placeholder = "Date">
         <input type = "text" id = 'year' oninput="a()" placeholder = "Year " value = "2020" disabled="disabled">
-        <div id = "ans" style = "font-size: 130px; font-family: sans-serif;"></div>
+        <div id = "ans" style = "font-size: 24px; font-family: sans-serif;"></div>
+
+        <table>
+            <tr>
+                <th>Period & Time</th>
+                <th>Odd Days</th>
+                <th>Even Days</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td><input type = "text" id = "1odd"></td>
+                <td><input type = "text" id = "1even"></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><input type = "text" id = "2odd"></td>
+                <td><input type = "text" id = "2even"></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><input type = "text" id = "3odd"></td>
+                <td><input type = "text" id = "3even"></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><input type = "text" id = "4odd"></td>
+                <td><input type = "text" id = "4even"></td>
+            </tr>
+            
+        </table>
+
     </div>
+
+
+
+
+
+
     <script>
+        function writeCookie() {
+            document.cookie = `
+            ${document.getElementById("1odd").value};
+            ${document.getElementById("1even").value};
+            ${document.getElementById("2odd").value};
+            ${document.getElementById("2even").value};
+            ${document.getElementById("3odd").value};
+            ${document.getElementById("3even").value};
+            ${document.getElementById("4odd").value};
+            ${document.getElementById("4even").value};
+            `
+        }
+
+        function readCookie() {
+            var arr = document.cookie.split(";")
+            console.log(arr);
+        }
+
         var b = new Date()
 
         document.getElementById("ans").innerHTML = (b.getMonth() + 1) +"/" + b.getDate() + " is Cohort " + ABC(schoolDate(b.getMonth() + 1, b.getDate(), 2020));
