@@ -70,7 +70,14 @@
 
         function readCookie() {
             var arr = document.cookie.split("'")
-            console.log(arr)
+            document.getElementById("1odd").value = arr[0];
+            document.getElementById("1even").value = arr[1];
+            document.getElementById("2odd").value = arr[2];
+            document.getElementById("2even").value = arr[3];
+            document.getElementById("3odd").value = arr[4];
+            document.getElementById("3even").value = arr[5];
+            document.getElementById("4odd").value = arr[6];
+            document.getElementById("4even").value = arr[7];
         }
 
         readCookie();
@@ -133,26 +140,49 @@
 
 
     function ABC(date) {
+        
+        
+        var str = ""
         switch (date % 6) {
             case 1 - 1: 
-                return "A EVEN" 
-
+            str = "even"
+            return "A EVEN" 
+            
             case 2 - 1: 
-                return "A ODD "
+            str = "odd"
+            return "A ODD "
             case 3 - 1: 
-                return "B EVEN" 
-
+            str = "even"
+            return "B EVEN" 
+            
             case 4 - 1: 
-                return "B ODD"
+            str = "odd"
+            return "B ODD"
             case 5 - 1: 
-                return "C EVEN"
-
+            str = "even"
+            return "C EVEN"
+            
             case 6 - 1: 
-                return "C ODD"
-        
+            str = "odd"
+            return "C ODD"
+            
         }
+
         return "(No school)"
-    }
+
+
+
+        var time = [new Date(new Date.getFullYear(), 0, 7, 36),
+                    new Date(new Date.getFullYear(), 0, 8, 57),
+                    new Date(new Date.getFullYear(), 0, 10, 18),
+                    new Date(new Date.getFullYear(), 0, 11, 39)]
+
+
+        var now = new Date();
+        for (var i = 0; i < 4; i ++)
+            if (now.getHours() >= time[0].getHours() && now.getMinutes() >= time[0].getMinutes())
+                document.getElementById((i + 1) + str).style.background = "rgba(144, 238, 144, 0.384)"
+    }   
     </script>
 </body>
 
