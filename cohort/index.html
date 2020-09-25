@@ -83,14 +83,14 @@
         function readCookie() {
             if (document.cookie != "") {
                 var arr = document.cookie.split("'")
-                document.getElementById("1odd").innerHTML = arr[0];
-                document.getElementById("1even").innerHTML = arr[1];
-                document.getElementById("2odd").innerHTML = arr[2];
-                document.getElementById("2even").innerHTML = arr[3];
-                document.getElementById("3odd").innerHTML = arr[4];
-                document.getElementById("3even").innerHTML = arr[5];
-                document.getElementById("4odd").innerHTML = arr[6];
-                document.getElementById("4even").innerHTML = arr[7];
+                document.getElementById("1odd").parentElement.innerHTML = `<a target = "_blank" id = "1odd" href = ${arr[0]}>${arr[0]}</a> `
+                document.getElementById("1even").parentElement.innerHTML = `<a target = "_blank" id = "1even" href = ${arr[1]}>${arr[1]}</a> `
+                document.getElementById("2odd").parentElement.innerHTML = `<a target = "_blank" id = "2odd" href = ${arr[2]}>${arr[2]}</a> `
+                document.getElementById("2even").parentElement.innerHTML = `<a target = "_blank" id = "2even" href = ${arr[3]}>${arr[3]}</a> `
+                document.getElementById("3odd").parentElement.innerHTML = `<a target = "_blank" id = "3odd" href = ${arr[4]}>${arr[4]}</a> `
+                document.getElementById("3even").parentElement.innerHTML = `<a target = "_blank" id = "3even" href = ${arr[5]}>${arr[5]}</a> `
+                document.getElementById("4odd").parentElement.innerHTML = `<a target = "_blank" id = "4odd" href = ${arr[6]}>${arr[6]}</a> `
+                document.getElementById("4even").parentElement.innerHTML = `<a target = "_blank" id = "4even" href = ${arr[7]}>${arr[7]}</a> `
             }
 
         }
