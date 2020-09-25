@@ -107,7 +107,6 @@
                 document.getElementById("3even").parentElement.innerHTML = `<input id = "3even" value = ${document.getElementById("3even").innerHTML}> `
                 document.getElementById("4odd").parentElement.innerHTML = `<input id = "4odd" value = ${document.getElementById("4odd").innerHTML}> `
                 document.getElementById("4even").parentElement.innerHTML = `<input id = "4even" value = ${document.getElementById("4even").innerHTML}> `
-                writeCookie();
             }
             else {
                 edit.innerHTML = "Edit Schedule"
@@ -119,6 +118,7 @@
                 document.getElementById("3even").parentElement.innerHTML = `<a target = "_blank" id = "3even" href = ${document.getElementById("3even").value}>${document.getElementById("3even").value}</a> `
                 document.getElementById("4odd").parentElement.innerHTML = `<a target = "_blank" id = "4odd" href = ${document.getElementById("4odd").value}>${document.getElementById("4odd").value}</a> `
                 document.getElementById("4even").parentElement.innerHTML = `<a target = "_blank" id = "4even" href = ${document.getElementById("4even").value}>${document.getElementById("4even").value}</a> `
+                writeCookie();
             }
         }
 
