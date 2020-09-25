@@ -60,12 +60,12 @@
             </tr>
             <tr>
                 <td>Period 4 <br><br>12:39PM - 1:56PM</td>
-                <td><a type = "text" id = "4odd"></td>
+                <td><a id = "4odd"></td>
                 <td><a id = "4even"></a>
             </tr>
             
         </table>
-        <button onclick = "edit()" id = "edit">Save Schedule</button>
+        <button onclick = "edit()" id = "edit">Edit Schedule</button>
 
     </div>
 
@@ -92,8 +92,7 @@
                 document.getElementById("4odd").innerHTML = arr[6];
                 document.getElementById("4even").innerHTML = arr[7];
             }
-            else
-                edit()
+
         }
 
         function edit() {
