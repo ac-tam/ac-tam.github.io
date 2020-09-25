@@ -76,21 +76,21 @@
 
     <script>
         function writeCookie() {
-                document.cookie = `${document.getElementById("1odd").value}'${document.getElementById("1even").value}'${document.getElementById("2odd").value}'${document.getElementById("2even").value}'${document.getElementById("3odd").value}'${document.getElementById("3even").value}'${document.getElementById("4odd").value}'${document.getElementById("4even").value}'`
+                document.cookie = `${document.getElementById("1odd").innerHTML}'${document.getElementById("1even").innerHTML}'${document.getElementById("2odd").innerHTML}'${document.getElementById("2even").innerHTML}'${document.getElementById("3odd").innerHTML}'${document.getElementById("3even").innerHTML}'${document.getElementById("4odd").innerHTML}'${document.getElementById("4even").innerHTML}'`
             
         }
 
         function readCookie() {
             if (document.cookie != "") {
                 var arr = document.cookie.split("'")
-                document.getElementById("1odd").value = arr[0];
-                document.getElementById("1even").value = arr[1];
-                document.getElementById("2odd").value = arr[2];
-                document.getElementById("2even").value = arr[3];
-                document.getElementById("3odd").value = arr[4];
-                document.getElementById("3even").value = arr[5];
-                document.getElementById("4odd").value = arr[6];
-                document.getElementById("4even").value = arr[7];
+                document.getElementById("1odd").innerHTML = arr[0];
+                document.getElementById("1even").innerHTML = arr[1];
+                document.getElementById("2odd").innerHTML = arr[2];
+                document.getElementById("2even").innerHTML = arr[3];
+                document.getElementById("3odd").innerHTML = arr[4];
+                document.getElementById("3even").innerHTML = arr[5];
+                document.getElementById("4odd").innerHTML = arr[6];
+                document.getElementById("4even").innerHTML = arr[7];
             }
 
         }
