@@ -8,22 +8,32 @@
     td {
         width: 300px;
         height: 50px;
+        text-align: center;
     }
 
-    table input {
+    table input, a{
             width: 100%;
             height: 100%;
             border: none;
             font-size: 12px;
     }
 
+    div {
+        display: block;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+    }
+
+    body {
+        font-family: sans-serif;
+    }
+
 </style>
 <body>
     <div class = "textbox">
-        Test a future date:
-        <input type = "text" id = "month" oninput="a()" placeholder="Month ">
-        <input type = "text" id = "date" oninput="a()" placeholder = "Date">
-        <input type = "text" id = 'year' oninput="a()" placeholder = "Year " value = "2020" disabled="disabled">
+
         <div id = "ans" style = "font-size: 24px; font-family: sans-serif;"></div>
 
         <table>
@@ -34,27 +44,28 @@
             </tr>
 
             <tr>
-                <td>1</td>
-                <td style="background-color: rgba(144, 238, 144, 0.384)"><input type = "text" id = "1odd" style="background-color: rgba(144, 238, 144, 0.384)"></td>
-                <td><input type = "text" id = "1even"></td>
+                <td>Period 1 <br><br>8:36AM - 9:53AM </td>
+                <td><a id = "1odd"></a>
+                <td><a id = "1even"></a>
             </tr>
             <tr>
-                <td>1</td>
-                <td><input type = "text" id = "2odd"></td>
-                <td><input type = "text" id = "2even"></td>
+                <td>Period 2 <br><br>9:57AM - 11:14AM</td>
+                <td><a id = "2odd"></a>
+                <td><a id = "2even"></a>
             </tr>
             <tr>
-                <td>1</td>
-                <td><input type = "text" id = "3odd"></td>
-                <td><input type = "text" id = "3even"></td>
+                <td>Period 3<br><br> 11:18AM - 12:35PM</td>
+                <td><a id = "3odd"></a>
+                <td><a id = "3even"></a>
             </tr>
             <tr>
-                <td>1</td>
-                <td><input type = "text" id = "4odd"></td>
-                <td><input type = "text" id = "4even" oninput="writeCookie()"></td>
+                <td>Period 4 <br><br>12:39PM - 1:56PM</td>
+                <td><a type = "text" id = "4odd"></td>
+                <td><a id = "4even"></a>
             </tr>
             
         </table>
+        <button onclick = "edit()" id = "edit">Save Schedule</button>
 
     </div>
 
@@ -65,26 +76,72 @@
 
     <script>
         function writeCookie() {
-            document.cookie = `${document.getElementById("1odd").value}'${document.getElementById("1even").value}'${document.getElementById("2odd").value}'${document.getElementById("2even").value}'${document.getElementById("3odd").value}'${document.getElementById("3even").value}'${document.getElementById("4odd").value}'${document.getElementById("4even").value}'`
+                document.cookie = `${document.getElementById("1odd").value}'${document.getElementById("1even").value}'${document.getElementById("2odd").value}'${document.getElementById("2even").value}'${document.getElementById("3odd").value}'${document.getElementById("3even").value}'${document.getElementById("4odd").value}'${document.getElementById("4even").value}'`
+            
         }
 
         function readCookie() {
-            var arr = document.cookie.split("'")
-            document.getElementById("1odd").value = arr[0];
-            document.getElementById("1even").value = arr[1];
-            document.getElementById("2odd").value = arr[2];
-            document.getElementById("2even").value = arr[3];
-            document.getElementById("3odd").value = arr[4];
-            document.getElementById("3even").value = arr[5];
-            document.getElementById("4odd").value = arr[6];
-            document.getElementById("4even").value = arr[7];
+            if (document.cookie != "") {
+                var arr = document.cookie.split("'")
+                document.getElementById("1odd").innerHTML = arr[0];
+                document.getElementById("1even").innerHTML = arr[1];
+                document.getElementById("2odd").innerHTML = arr[2];
+                document.getElementById("2even").innerHTML = arr[3];
+                document.getElementById("3odd").innerHTML = arr[4];
+                document.getElementById("3even").innerHTML = arr[5];
+                document.getElementById("4odd").innerHTML = arr[6];
+                document.getElementById("4even").innerHTML = arr[7];
+            }
+            else
+                edit()
         }
+
+        function edit() {
+            var edit = document.getElementById("edit")
+            if (edit.innerHTML == "Edit Schedule") {
+                edit.innerHTML = "Save Schedule"
+                document.getElementById("1odd").parentElement.innerHTML = `<input id = "1odd" value = ${document.getElementById("1odd").innerHTML}> `
+                document.getElementById("1even").parentElement.innerHTML = `<input id = "1even" value = ${document.getElementById("1even").innerHTML}> `
+                document.getElementById("2odd").parentElement.innerHTML = `<input id = "2odd" value = ${document.getElementById("2odd").innerHTML}> `
+                document.getElementById("2even").parentElement.innerHTML = `<input id = "2even" value = ${document.getElementById("2even").innerHTML}> `
+                document.getElementById("3odd").parentElement.innerHTML = `<input id = "3odd" value = ${document.getElementById("3odd").innerHTML}> `
+                document.getElementById("3even").parentElement.innerHTML = `<input id = "3even" value = ${document.getElementById("3even").innerHTML}> `
+                document.getElementById("4odd").parentElement.innerHTML = `<input id = "4odd" value = ${document.getElementById("4odd").innerHTML}> `
+                document.getElementById("4even").parentElement.innerHTML = `<input id = "4even" value = ${document.getElementById("4even").innerHTML}> `
+                writeCookie();
+            }
+            else {
+                edit.innerHTML = "Edit Schedule"
+                document.getElementById("1odd").parentElement.innerHTML = `<a target = "_blank" id = "1odd" href = ${document.getElementById("1odd").value}>${document.getElementById("1odd").value}</a> `
+                document.getElementById("1even").parentElement.innerHTML = `<a target = "_blank" id = "1even" href = ${document.getElementById("1even").value}>${document.getElementById("1even").value}</a> `
+                document.getElementById("2odd").parentElement.innerHTML = `<a target = "_blank" id = "2odd" href = ${document.getElementById("2odd").value}>${document.getElementById("2odd").value}</a> `
+                document.getElementById("2even").parentElement.innerHTML = `<a target = "_blank" id = "2even" href = ${document.getElementById("2even").value}>${document.getElementById("2even").value}</a> `
+                document.getElementById("3odd").parentElement.innerHTML = `<a target = "_blank" id = "3odd" href = ${document.getElementById("3odd").value}>${document.getElementById("3odd").value}</a> `
+                document.getElementById("3even").parentElement.innerHTML = `<a target = "_blank" id = "3even" href = ${document.getElementById("3even").value}>${document.getElementById("3even").value}</a> `
+                document.getElementById("4odd").parentElement.innerHTML = `<a target = "_blank" id = "4odd" href = ${document.getElementById("4odd").value}>${document.getElementById("4odd").value}</a> `
+                document.getElementById("4even").parentElement.innerHTML = `<a target = "_blank" id = "4even" href = ${document.getElementById("4even").value}>${document.getElementById("4even").value}</a> `
+            }
+        }
+
 
         readCookie();
 
-        var b = new Date()
 
+
+
+        document.getElementById("1odd").style.background = "rgb(255, 255, 255)";
+        document.getElementById("1even").style.background = "rgb(255, 255, 255)";
+        document.getElementById("2odd").style.background = "rgb(255, 255, 255)";
+        document.getElementById("2even").style.background = "rgb(255, 255, 255)";
+        document.getElementById("3odd").style.background = "rgb(255, 255, 255)";
+        document.getElementById("3even").style.background = "rgb(255, 255, 255)";
+        document.getElementById("4odd").style.background = "rgb(255, 255, 255)";
+        document.getElementById("4even").style.background = "rgb(255, 255, 255)";
+        
+        var b = new Date()
         document.getElementById("ans").innerHTML = (b.getMonth() + 1) +"/" + b.getDate() + " is Cohort " + ABC(schoolDate(b.getMonth() + 1, b.getDate(), 2020));
+        
+
 
         function a() {
             var month = parseInt(document.getElementById("month").value)
@@ -137,64 +194,60 @@
                 return i
 
     }
-
-
+    
+    
     function ABC(date) {
-        
-        
+    
         var str = ""
+        var cohort = ""
+        
         switch (date % 6) {
             case 1 - 1: 
-            str = "even"
-            return "A EVEN" 
+                str = "odd"
+                cohort =  "A Odd" 
+                break;
             
             case 2 - 1: 
-            str = "odd"
-            return "A ODD "
+                str = "even"
+                cohort =  "A Even"
+                break;
+
             case 3 - 1: 
-            str = "even"
-            return "B EVEN" 
+                str = "odd"
+                cohort =  "B Odd"
+                break; 
             
             case 4 - 1: 
-            str = "odd"
-            return "B ODD"
+                str = "even"
+                cohort =  "B Even"
+                break;
             case 5 - 1: 
-            str = "even"
-            return "C EVEN"
+                str = "odd"
+                cohort =  "C Odd"
+                break;
             
             case 6 - 1: 
-            str = "odd"
-            return "C ODD"
+                str = "even"
+                cohort =  "C Even"
+                break;
             
         }
 
-        return "(No school)"
-
-
-
-        var time = [new Date(new Date.getFullYear(), 0, 7, 36),
-                    new Date(new Date.getFullYear(), 0, 8, 57),
-                    new Date(new Date.getFullYear(), 0, 10, 18),
-                    new Date(new Date.getFullYear(), 0, 11, 39)]
-
-
         var now = new Date();
-        for (var i = 0; i < 4; i ++)
-            if (now.getHours() >= time[0].getHours() && now.getMinutes() >= time[0].getMinutes())
-                document.getElementById((i + 1) + str).style.background = "rgba(144, 238, 144, 0.384)"
-    }   
-    </script>
+        var time = [new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 36 - 6),
+                    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 9, 57 - 6),
+                    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 11, 18 - 6),
+                    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 39 - 6)]
+
+
+        for (var i = 3; i > -1; i--)
+            if (now.getTime() >= time[i].getTime()) {
+                document.getElementById((i + 1) + str).parentElement.style.background = "rgba(144, 238, 144, 0.384)"
+        break;
+}
+        return cohort;
+    }     
+    
+    
+    </script>    
 </body>
-
-<style>
-    .textbox {
-        width: 1200px;
-        padding-top: 200px ;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    input {
-        width: 50px;
-    }
-
-</style>
