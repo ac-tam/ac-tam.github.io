@@ -80,7 +80,7 @@
 
     <script>
         function writeCookie() {
-                document.cookie = `${document.getElementById("1odd").innerHTML}'${document.getElementById("1even").innerHTML}'${document.getElementById("2odd").innerHTML}'${document.getElementById("2even").innerHTML}'${document.getElementById("3odd").innerHTML}'${document.getElementById("3even").innerHTML}'${document.getElementById("4odd").innerHTML}'${document.getElementById("4even").innerHTML}'`
+                document.cookie =`1=${document.getElementById("1odd").innerHTML}'${document.getElementById("1even").innerHTML}'${document.getElementById("2odd").innerHTML}'${document.getElementById("2even").innerHTML}'${document.getElementById("3odd").innerHTML}'${document.getElementById("3even").innerHTML}'${document.getElementById("4odd").innerHTML}'${document.getElementById("4even").innerHTML}'`
             
         }
 
@@ -132,14 +132,14 @@
 
 
 
-        document.getElementById("1odd").style.background = "rgb(255, 255, 255)";
-        document.getElementById("1even").style.background = "rgb(255, 255, 255)";
-        document.getElementById("2odd").style.background = "rgb(255, 255, 255)";
-        document.getElementById("2even").style.background = "rgb(255, 255, 255)";
-        document.getElementById("3odd").style.background = "rgb(255, 255, 255)";
-        document.getElementById("3even").style.background = "rgb(255, 255, 255)";
-        document.getElementById("4odd").style.background = "rgb(255, 255, 255)";
-        document.getElementById("4even").style.background = "rgb(255, 255, 255)";
+        document.getElementById("1odd").parentElement.style.background = "rgb(255, 255, 255)";
+        document.getElementById("1even").parentElement.style.background = "rgb(255, 255, 255)";
+        document.getElementById("2odd").parentElement.style.background = "rgb(255, 255, 255)";
+        document.getElementById("2even").parentElement.style.background = "rgb(255, 255, 255)";
+        document.getElementById("3odd").parentElement.style.background = "rgb(255, 255, 255)";
+        document.getElementById("3even").parentElement.style.background = "rgb(255, 255, 255)";
+        document.getElementById("4odd").parentElement.style.background = "rgb(255, 255, 255)";
+        document.getElementById("4even").parentElement.style.background = "rgb(255, 255, 255)";
         
         var b = new Date()
         document.getElementById("ans").innerHTML = (b.getMonth() + 1) +"/" + b.getDate() + " is Cohort " + ABC(schoolDate(b.getMonth() + 1, b.getDate(), 2020));
