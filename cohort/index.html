@@ -86,7 +86,7 @@
 
         function readCookie() {
             if (document.cookie != "") {
-                var arr = document.cookie.split("'")
+                var arr = document.cookie.substring(2).split("'")
                 document.getElementById("1odd").parentElement.innerHTML = `<a target = "_blank" id = "1odd" href = ${arr[0]}>${arr[0]}</a> `
                 document.getElementById("1even").parentElement.innerHTML = `<a target = "_blank" id = "1even" href = ${arr[1]}>${arr[1]}</a> `
                 document.getElementById("2odd").parentElement.innerHTML = `<a target = "_blank" id = "2odd" href = ${arr[2]}>${arr[2]}</a> `
