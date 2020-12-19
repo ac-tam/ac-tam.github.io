@@ -1,6 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cohort Schedule</title>
+</head>
+
 <style>
     table, th, td, tr {
-        border: 1px solid black;
+        border: 2px solid black;
         border-collapse: collapse;
 
     }
@@ -11,11 +18,11 @@
         text-align: center;
     }
 
-    table input, a {
-            width: 100%;
+    table input {
+            width: 99%;
             height: 100%;
             border: none;
-            font-size: 12px;
+            background-color: rgba(125, 226, 233, 0.384);
     }
 
     div {
@@ -31,7 +38,10 @@
     }
 
     a {
+        font-size: 12px;
         background-color: none;
+        text-decoration: none;
+        
     }
 
 </style>
@@ -70,13 +80,9 @@
             
         </table>
         <button onclick = "edit()" id = "edit">Edit Schedule</button>
+        <a href = "https://github.com/ac-tam/Cohort-Java-Version/releases/download/1/Schedule.App.jar">Download</a><a> PC Version (requires Java)</a>
 
     </div>
-
-
-
-
-
 
     <script>
         function writeCookie() {
@@ -253,3 +259,4 @@
     
     </script>    
 </body>
+</html>
