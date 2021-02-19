@@ -1,12 +1,327 @@
-<!doctype html>
-
-    <body>
-        Under Construction
-   </body>
-   
-
+<!DOCTYPE html>
 
 <script>
+    function changeSize(n) {
+        document.getElementById(n + "").className = "hexagon2";
+    }
 
+    function defaultSize(n) {
+        document.getElementById(n + "").className = "hexagon";
+    }
 
+    function changeDisplay(n) {
+        document.getElementById("back0").style.display = "none";
+        document.getElementById("back1").style.display = "none";
+        document.getElementById("back2").style.display = "none";
+        document.getElementById("back3").style.display = "none";
+        document.getElementById("back4").style.display = "none";
+        document.getElementById("back5").style.display = "none";
+        document.getElementById("back6").style.display = "none";
+        document.getElementById("back7").style.display = "none";
+        document.getElementById("back" + n).style.display = "block";
+    }
+
+    function adjust() {
+        small = document.documentElement.clientWidth / 10 + "px";
+        big = document.documentElement.clientWidth / 10 + "px";
+        document.documentElement.style.setProperty("--size", small);
+        document.documentElement.style.setProperty("--size2", big);
+    }
 </script>
+
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Tam</title>
+</head>
+
+<body onresize="adjust()">
+    <script>adjust();</script>
+    <div style="width: 80%; margin: auto auto">
+        <div class="about">
+            <h1>Andrew Tam</h1>
+            <p>GitHub: <a target="_blank" href="https://github.com/ac-tam">github.com/ac-tam</a></p>
+            <p>Contact: <a href="mailto:contact@andrewtam.org">contact@andrewtam.org</a></p>
+        </div>
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 50%;">
+                    <div id="back0" class="about">
+                        <p>Welcome to my website!</p>
+                        <p>Click on the hexagons to the right to see some of my projects!</p>
+                    </div>
+                    <div id="back1" style="display: none;">
+                        <div class="about">
+                            <video src="assets/gpa.mp4" autoplay muted loop></video>
+                            <h2>Copy-Paste GPA Calculator</h2>
+                            <p>A calculator that can calcualte GPA by copying and pasting from PupilPath, an online gradebook</p> <br>
+                            <p><a target="_blank" href="https://github.com/ac-tam/calculating.tools/blob/master/subjects/GPA-Calculator/index.html">GitHub Repository</a></p>
+                            <p><a target="_blank" href="https://calculating.tools/subjects/GPA-Calculator/">Link</a></p>
+                        </div>
+                    </div>
+                    <div id="back2" style="display: none;">
+                        <div class="about">
+                            <video src="assets/labs.mp4" autoplay muted loop></video>
+                            <h2>Virtual Physics Labs</h2>
+                            <p>Virtual Physics Labs developed using the Unity Game Engine</p>  <br>
+                            <p><a target="_blank" href="https://github.com/ac-tam/physics-labs-scripts">GitHub Repository</a></p>
+                            <p><a target="_blank" href="https://calculating.tools/">Link</a></p>
+                        </div>
+                    </div>
+                    <div id="back3" style="display: none;">
+                        <div class="about">
+                            <img src="assets/grades.png">
+                            <h2>Grade Improvement Calculator</h2>
+                            <p>A calculator that determines what test scores a student needs to achieve their desiredgrade point average.</p> <br>
+                            <p><a target="_blank" href="https://github.com/ac-tam/calculating.tools/blob/master/subjects/GPA-Calculator/Grade-Improvement-Calculator/index.html">GitHub Repository</a></p>
+                            <p><a target="_blank" href="https://calculating.tools/subjects/GPA-Calculator/Grade-Improvement-Calculator/">Link</a></p>
+                        </div>
+                    </div>
+    </div>
+    <div id="back4" style="display: none;">
+        <div class="about">
+            <img src="assets/gps.png" style="float:  left; width: 45%; margin: 0px">
+            <div style="width: 45%; float: right">
+                <h2>BTHS GPS</h2>
+                <p>A app that provides step by step directions between classrooms in Brooklyn Technical High School </p>  <br>
+                    <p><a target="_blank" href="https://github.com/ac-tam/gps">GitHub Repository</a></p>
+                    <p><a target="_blank" href="https://github.com/ac-tam/gps/releases/">Android App .apk</a></p>
+                    <p><a target="_blank" href="https://andrewtam.org/gps">Web App</a></p>
+            </div>
+        </div>
+    </div>
+    <div id="back5" style="display: none;">
+        <div class="about">
+            <img src="assets/cohort.png" style="width: 50%; margin-left: 25%; margin-right: 25%;">
+            <h2>Remote Learning Bell Schedule App </h2>
+            <p>An app that cycles through zoom links based on the bell schedule </p> <br>
+                <p><a target="_blank" href="https://github.com/ac-tam/Cohort-Java-Version">GitHub Repository</a></p>
+                <p><a target="_blank" href="https://github.com/ac-tam/Cohort-Java-Version/releases">.jar File</a></p>
+                <p><a target="_blank" href="https://andrewtam.org/cohort">Web App</a></p>
+        </div>
+    </div>
+    <div id="back6" style="display: none;">
+        <div class="about">
+            <img src="assets/farm.png">
+            <h2>Stardew Valley Sprinkler Placer</h2>
+            <p>A Java tool that optimially places sprinklers in the game Stardew Valley </p> <br>
+            <p><a target="_blank" href="https://github.com/ac-tam/SV-Sprinkler-Placer">GitHub Repository</a></p>
+            <p><a target="_blank" href="https://github.com/ac-tam/SV-Sprinkler-Placer/blob/master/Sprinkler%20Optimizer.jar">.jar File</a></p>
+        </div>
+    </div>
+    <div id="back7" style="display: none;">
+        <div class="about">
+            <img src="assets/physics.png">
+            <h2>Physics Linearization Calculator</h2>
+            <p>A tool that can linearize raw physics experiment data </p> <br>
+            <p><a target="_blank" href="https://github.com/ac-tam/calculating.tools/tree/master/subjects/physics/linearization-calculator">GitHub Repository</a></p>
+            <p><a target="_blank" href="https://calculating.tools/subjects/physics/linearization-calculator/">Link</a></p>
+        </div>
+    </div>
+    </td>
+    <td style="width: 45%;">
+        <table>
+            <tr>
+                <td>
+                    <div id="1" onclick="changeDisplay(1)" onmouseenter="changeSize(1)" onmouseout="defaultSize(1)"
+                        class="hexagon">
+                    </div>
+                </td>
+                <td>
+                    <div id="2" onclick="changeDisplay(2)" onmouseenter="changeSize(2)" onmouseout="defaultSize(2)"
+                        class="hexagon">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>
+                    <div id="3" onclick="changeDisplay(3)" onmouseenter="changeSize(3)" onmouseout="defaultSize(3)"
+                        class="hexagon">
+                    </div>
+                </td>
+                <td>
+                    <div id="4" onclick="changeDisplay(4)" onmouseenter="changeSize(4)" onmouseout="defaultSize(4)"
+                        class="hexagon">
+                    </div>
+                </td>
+                <td>
+                    <div id="5" onclick="changeDisplay(5)" onmouseenter="changeSize(5)" onmouseout="defaultSize(5)"
+                        class="hexagon">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>
+                    <div id="6" onclick="changeDisplay(6)" onmouseenter="changeSize(6)" onmouseout="defaultSize(6)"
+                        class="hexagon">
+                    </div>
+                </td>
+                <td>
+                    <div id="7" onclick="changeDisplay(7)" onmouseenter="changeSize(7)" onmouseout="defaultSize(7)"
+                        class="hexagon">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+    </tr>
+    </table>
+    </div>
+</body>
+</html>
+
+<style>
+    :root {
+        --size: 0px;
+        --size2: 0px;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        background-color: rgba(8, 232, 240, 0.295);
+    }
+
+    video,
+    img {
+        width: 80%;
+        border-radius: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    @media only screen and (max-width: 900px) {
+        img,
+        video {
+            display: none
+        }
+    }
+
+    body {
+        margin: 0;
+        background-color: rgb(50, 50, 50);
+    }
+
+    h1 {
+        text-align: center;
+        font-size: xx-large;
+        font-family: Georgia;
+        color: white;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: large;
+        font-family: Georgia;
+        color: white;
+    }
+
+    p {
+        text-align: center;
+        font-size: medium;
+        font-family: Georgia;
+        color: white;
+    }
+
+    table,
+    tr {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    table {
+        margin-bottom: calc(var(--size) * -0.30);
+    }
+
+    td {
+        vertical-align: top;
+    }
+    
+    .about {
+        background-color: #395674;
+        border-radius: 35px;
+        padding-left: 10%;
+        padding-right: 10%;
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 1%;
+        border-color: black;
+        border-width: 10px;
+        margin-bottom: 20px;
+        overflow: auto;
+    }
+
+    .projects {
+        text-align: center;
+        font-size: 24px;
+        font-family: Georgia;
+        color: black;
+    }
+
+    .hexagon {
+        position: relative;
+        width: var(--size);
+        height: calc(var(--size) * 0.57735);
+        background-color: #395674;
+        margin: calc(var(--size) * 0.5 * 0.57735) 0;
+    }
+
+    .hexagon:before,
+    .hexagon:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: calc(var(--size) * 0.5) solid transparent;
+        border-right: calc(var(--size) * 0.5) solid transparent;
+    }
+
+    .hexagon:before {
+        bottom: 100%;
+        border-bottom: calc(var(--size) * 0.5 * 0.57735) solid #395674;
+    }
+
+    .hexagon:after {
+        top: 100%;
+        width: 0;
+        border-top: calc(var(--size) * 0.5 * 0.57735) solid #395674;
+    }
+
+    .hexagon2 {
+        position: relative;
+        width: var(--size2);
+        height: calc(var(--size2) * 0.57735);
+        background-color: #000000;
+        margin: calc(var(--size2) * 0.5 * 0.57735) 0;
+    }
+
+    .hexagon2:before,
+    .hexagon2:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: calc(var(--size2) * 0.5) solid transparent;
+        border-right: calc(var(--size2) * 0.5) solid transparent;
+    }
+
+    .hexagon2:before {
+        bottom: 100%;
+        border-bottom: calc(var(--size2) * 0.5 * 0.57735) solid #000000;
+    }
+
+    .hexagon2:after {
+        top: 100%;
+        width: 0;
+        border-top: calc(var(--size2) * 0.5 * 0.57735) solid #000000;
+    }
+</style>
