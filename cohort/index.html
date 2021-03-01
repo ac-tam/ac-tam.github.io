@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remote Learning Cohort Schedule</title>
 </head>
 
 <style>
-    table, th, td, tr {
+    table,
+    th,
+    td,
+    tr {
         border: 2px solid black;
         border-collapse: collapse;
 
@@ -19,10 +23,10 @@
     }
 
     table input {
-            width: 99%;
-            height: 100%;
-            border: none;
-            background-color: rgba(125, 226, 233, 0.384);
+        width: 99%;
+        height: 100%;
+        border: none;
+        background-color: rgba(125, 226, 233, 0.384);
     }
 
     div {
@@ -41,14 +45,14 @@
         font-size: 12px;
         background-color: none;
         text-decoration: none;
-        
+
     }
-
 </style>
-<body>
-    <div class = "textbox">
 
-        <div id = "ans" style = "font-size: 24px; font-family: sans-serif;"></div>
+<body>
+    <div class="textbox">
+
+        <div id="ans" style="font-size: 24px; font-family: sans-serif;"></div>
 
         <table>
             <tr>
@@ -59,48 +63,57 @@
 
             <tr>
                 <td>Period 1 <br><br>8:32AM - 9:47AM </td>
-                <td><a id = "1odd"></a>
-                <td><a id = "1even"></a>
+                <td><a id="1odd"></a>
+                <td><a id="1even"></a>
             </tr>
             <tr>
                 <td>Period 2 <br><br>9:55AM - 11:10AM</td>
-                <td><a id = "2odd"></a>
-                <td><a id = "2even"></a>
+                <td><a id="2odd"></a>
+                <td><a id="2even"></a>
             </tr>
             <tr>
                 <td>Period 3<br><br> 11:18AM - 12:33PM</td>
-                <td><a id = "3odd"></a>
-                <td><a id = "3even"></a>
+                <td><a id="3odd"></a>
+                <td><a id="3even"></a>
             </tr>
             <tr>
                 <td>Period 4 <br><br>12:41PM - 1:56PM</td>
-                <td><a id = "4odd"></td>
-                <td><a id = "4even"></a>
+                <td><a id="4odd"></td>
+                <td><a id="4even"></a>
             </tr>
-            
+
         </table>
-        <button onclick = "edit()" id = "edit">Edit Schedule</button>
-        <a href = "https://github.com/ac-tam/Cohort-Java-Version/releases">Download</a><a> PC Version (requires Java)</a>
+        <button onclick="edit()" id="edit">Edit Schedule</button>
+        <a href="https://github.com/ac-tam/Cohort-Java-Version/releases">Download</a><a> PC Version (requires Java)</a>
 
     </div>
 
     <script>
         function writeCookie() {
-                document.cookie =`1=${document.getElementById("1odd").innerHTML}'${document.getElementById("1even").innerHTML}'${document.getElementById("2odd").innerHTML}'${document.getElementById("2even").innerHTML}'${document.getElementById("3odd").innerHTML}'${document.getElementById("3even").innerHTML}'${document.getElementById("4odd").innerHTML}'${document.getElementById("4even").innerHTML}'`
-            
+            document.cookie =
+                `1=${document.getElementById("1odd").innerHTML}'${document.getElementById("1even").innerHTML}'${document.getElementById("2odd").innerHTML}'${document.getElementById("2even").innerHTML}'${document.getElementById("3odd").innerHTML}'${document.getElementById("3even").innerHTML}'${document.getElementById("4odd").innerHTML}'${document.getElementById("4even").innerHTML}'`
+
         }
 
         function readCookie() {
             if (document.cookie != "") {
                 var arr = document.cookie.substring(2).split("'")
-                document.getElementById("1odd").parentElement.innerHTML = `<a target = "_blank" id = "1odd" href = ${arr[0]}>${arr[0]}</a> `
-                document.getElementById("1even").parentElement.innerHTML = `<a target = "_blank" id = "1even" href = ${arr[1]}>${arr[1]}</a> `
-                document.getElementById("2odd").parentElement.innerHTML = `<a target = "_blank" id = "2odd" href = ${arr[2]}>${arr[2]}</a> `
-                document.getElementById("2even").parentElement.innerHTML = `<a target = "_blank" id = "2even" href = ${arr[3]}>${arr[3]}</a> `
-                document.getElementById("3odd").parentElement.innerHTML = `<a target = "_blank" id = "3odd" href = ${arr[4]}>${arr[4]}</a> `
-                document.getElementById("3even").parentElement.innerHTML = `<a target = "_blank" id = "3even" href = ${arr[5]}>${arr[5]}</a> `
-                document.getElementById("4odd").parentElement.innerHTML = `<a target = "_blank" id = "4odd" href = ${arr[6]}>${arr[6]}</a> `
-                document.getElementById("4even").parentElement.innerHTML = `<a target = "_blank" id = "4even" href = ${arr[7]}>${arr[7]}</a> `
+                document.getElementById("1odd").parentElement.innerHTML =
+                    `<a target = "_blank" id = "1odd" href = ${arr[0]}>${arr[0]}</a> `
+                document.getElementById("1even").parentElement.innerHTML =
+                    `<a target = "_blank" id = "1even" href = ${arr[1]}>${arr[1]}</a> `
+                document.getElementById("2odd").parentElement.innerHTML =
+                    `<a target = "_blank" id = "2odd" href = ${arr[2]}>${arr[2]}</a> `
+                document.getElementById("2even").parentElement.innerHTML =
+                    `<a target = "_blank" id = "2even" href = ${arr[3]}>${arr[3]}</a> `
+                document.getElementById("3odd").parentElement.innerHTML =
+                    `<a target = "_blank" id = "3odd" href = ${arr[4]}>${arr[4]}</a> `
+                document.getElementById("3even").parentElement.innerHTML =
+                    `<a target = "_blank" id = "3even" href = ${arr[5]}>${arr[5]}</a> `
+                document.getElementById("4odd").parentElement.innerHTML =
+                    `<a target = "_blank" id = "4odd" href = ${arr[6]}>${arr[6]}</a> `
+                document.getElementById("4even").parentElement.innerHTML =
+                    `<a target = "_blank" id = "4even" href = ${arr[7]}>${arr[7]}</a> `
             }
 
         }
@@ -109,25 +122,40 @@
             var edit = document.getElementById("edit")
             if (edit.innerHTML == "Edit Schedule") {
                 edit.innerHTML = "Save Schedule"
-                document.getElementById("1odd").parentElement.innerHTML = `<input id = "1odd" value = ${document.getElementById("1odd").innerHTML}> `
-                document.getElementById("1even").parentElement.innerHTML = `<input id = "1even" value = ${document.getElementById("1even").innerHTML}> `
-                document.getElementById("2odd").parentElement.innerHTML = `<input id = "2odd" value = ${document.getElementById("2odd").innerHTML}> `
-                document.getElementById("2even").parentElement.innerHTML = `<input id = "2even" value = ${document.getElementById("2even").innerHTML}> `
-                document.getElementById("3odd").parentElement.innerHTML = `<input id = "3odd" value = ${document.getElementById("3odd").innerHTML}> `
-                document.getElementById("3even").parentElement.innerHTML = `<input id = "3even" value = ${document.getElementById("3even").innerHTML}> `
-                document.getElementById("4odd").parentElement.innerHTML = `<input id = "4odd" value = ${document.getElementById("4odd").innerHTML}> `
-                document.getElementById("4even").parentElement.innerHTML = `<input id = "4even" value = ${document.getElementById("4even").innerHTML}> `
-            }
-            else {
+                document.getElementById("1odd").parentElement.innerHTML =
+                    `<input id = "1odd" value = ${document.getElementById("1odd").innerHTML}> `
+                document.getElementById("1even").parentElement.innerHTML =
+                    `<input id = "1even" value = ${document.getElementById("1even").innerHTML}> `
+                document.getElementById("2odd").parentElement.innerHTML =
+                    `<input id = "2odd" value = ${document.getElementById("2odd").innerHTML}> `
+                document.getElementById("2even").parentElement.innerHTML =
+                    `<input id = "2even" value = ${document.getElementById("2even").innerHTML}> `
+                document.getElementById("3odd").parentElement.innerHTML =
+                    `<input id = "3odd" value = ${document.getElementById("3odd").innerHTML}> `
+                document.getElementById("3even").parentElement.innerHTML =
+                    `<input id = "3even" value = ${document.getElementById("3even").innerHTML}> `
+                document.getElementById("4odd").parentElement.innerHTML =
+                    `<input id = "4odd" value = ${document.getElementById("4odd").innerHTML}> `
+                document.getElementById("4even").parentElement.innerHTML =
+                    `<input id = "4even" value = ${document.getElementById("4even").innerHTML}> `
+            } else {
                 edit.innerHTML = "Edit Schedule"
-                document.getElementById("1odd").parentElement.innerHTML = `<a target = "_blank" id = "1odd" href = ${document.getElementById("1odd").value}>${document.getElementById("1odd").value}</a> `
-                document.getElementById("1even").parentElement.innerHTML = `<a target = "_blank" id = "1even" href = ${document.getElementById("1even").value}>${document.getElementById("1even").value}</a> `
-                document.getElementById("2odd").parentElement.innerHTML = `<a target = "_blank" id = "2odd" href = ${document.getElementById("2odd").value}>${document.getElementById("2odd").value}</a> `
-                document.getElementById("2even").parentElement.innerHTML = `<a target = "_blank" id = "2even" href = ${document.getElementById("2even").value}>${document.getElementById("2even").value}</a> `
-                document.getElementById("3odd").parentElement.innerHTML = `<a target = "_blank" id = "3odd" href = ${document.getElementById("3odd").value}>${document.getElementById("3odd").value}</a> `
-                document.getElementById("3even").parentElement.innerHTML = `<a target = "_blank" id = "3even" href = ${document.getElementById("3even").value}>${document.getElementById("3even").value}</a> `
-                document.getElementById("4odd").parentElement.innerHTML = `<a target = "_blank" id = "4odd" href = ${document.getElementById("4odd").value}>${document.getElementById("4odd").value}</a> `
-                document.getElementById("4even").parentElement.innerHTML = `<a target = "_blank" id = "4even" href = ${document.getElementById("4even").value}>${document.getElementById("4even").value}</a> `
+                document.getElementById("1odd").parentElement.innerHTML =
+                    `<a target = "_blank" id = "1odd" href = ${document.getElementById("1odd").value}>${document.getElementById("1odd").value}</a> `
+                document.getElementById("1even").parentElement.innerHTML =
+                    `<a target = "_blank" id = "1even" href = ${document.getElementById("1even").value}>${document.getElementById("1even").value}</a> `
+                document.getElementById("2odd").parentElement.innerHTML =
+                    `<a target = "_blank" id = "2odd" href = ${document.getElementById("2odd").value}>${document.getElementById("2odd").value}</a> `
+                document.getElementById("2even").parentElement.innerHTML =
+                    `<a target = "_blank" id = "2even" href = ${document.getElementById("2even").value}>${document.getElementById("2even").value}</a> `
+                document.getElementById("3odd").parentElement.innerHTML =
+                    `<a target = "_blank" id = "3odd" href = ${document.getElementById("3odd").value}>${document.getElementById("3odd").value}</a> `
+                document.getElementById("3even").parentElement.innerHTML =
+                    `<a target = "_blank" id = "3even" href = ${document.getElementById("3even").value}>${document.getElementById("3even").value}</a> `
+                document.getElementById("4odd").parentElement.innerHTML =
+                    `<a target = "_blank" id = "4odd" href = ${document.getElementById("4odd").value}>${document.getElementById("4odd").value}</a> `
+                document.getElementById("4even").parentElement.innerHTML =
+                    `<a target = "_blank" id = "4even" href = ${document.getElementById("4even").value}>${document.getElementById("4even").value}</a> `
                 writeCookie();
             }
         }
@@ -146,10 +174,11 @@
         document.getElementById("3even").parentElement.style.background = "rgb(255, 255, 255)";
         document.getElementById("4odd").parentElement.style.background = "rgb(255, 255, 255)";
         document.getElementById("4even").parentElement.style.background = "rgb(255, 255, 255)";
-        
+
         var b = new Date()
-        document.getElementById("ans").innerHTML = (b.getMonth() + 1) +"/" + b.getDate() + " is Cohort " + ABC(schoolDate(b.getMonth() + 1, b.getDate(), 2020));
-        
+        document.getElementById("ans").innerHTML = (b.getMonth() + 1) + "/" + b.getDate() + " is Cohort " + ABC(
+            schoolDate(b.getMonth() + 1, b.getDate(), 2021));
+
 
 
         function a() {
@@ -157,120 +186,123 @@
             var year = parseInt(document.getElementById("year").value)
             var date = parseInt(document.getElementById("date").value)
 
-            if (month + "" !== "NaN" && date + "" !== "NaN") 
-            document.getElementById("ans").innerHTML = month + "/" + date + " is Cohort " + ABC(schoolDate(month, date, year));
-       }
-   
-
-
-    function dayOfYear(now) {
-        var start = new Date(now.getFullYear(), 0, 0);
-        return Math.floor(((now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000) )/ 86400000);
-    }
-
-    function schoolDate(m, d, y) {
-        var weekends = dayOfYear(new Date(y, m -1, d - 1)) - dayOfYear(new Date(2020, 8, 20)) 
-
-        return weekends - Math.floor(weekends / 7) * 2- holidays(new Date(y, m -1, d - 1))
-    }
-
-    function holidays(date) {
-        var holidaysArr = [
-            new Date(2020, 9 - 1, 28),
-            new Date(2020, 10 - 1, 12),
-            new Date(2020, 11 - 1, 11),
-            new Date(2020, 11 - 1, 26),
-            new Date(2020, 11 - 1, 27),
-            new Date(2020, 12 - 1, 24),
-            new Date(2020, 12 - 1, 25),
-            new Date(2020, 12 - 1, 26),
-            new Date(2020, 12 - 1, 27),
-            new Date(2020, 12 - 1, 28),
-            new Date(2020, 12 - 1, 29),
-            new Date(2020, 12 - 1, 30),
-            new Date(2020, 12 - 1, 31),
-            new Date(2021, 1 - 1, 1),
-            new Date(2021, 1 - 1, 17),
-            new Date(2021, 2 - 1, 1),
-            new Date(2021, 2 - 1, 12),
-            new Date(2021, 2 - 1, 15),
-            new Date(2021, 2 - 1, 16),
-            new Date(2021, 2 - 1, 17),
-            new Date(2021, 2 - 1, 18),
-            new Date(2021, 2 - 1, 19),
-            new Date(2021, 3 - 1, 29),
-            new Date(2021, 3 - 1, 30),
-            new Date(2021, 3 - 1, 31),
-            new Date(2021, 4 - 1, 1),
-            new Date(2021, 4 - 1, 2),
-            new Date(2021, 5 - 1, 13),
-            new Date(2021, 5 - 1, 31),
-            new Date(2021, 6 - 1, 3)
-
-
-        ]
-
-        for (var i = holidaysArr.length - 1; i > -1 ; i--)
-            if (holidaysArr[i].getTime() == date.getTime());
-            else if (holidaysArr[i].getTime() < date.getTime())  
-                return i
-
-    }
-    
-    
-    function ABC(date) {
-    
-        var str = ""
-        var cohort = ""
-        
-        switch (date % 6) {
-            case 1 - 1: 
-                str = "odd"
-                cohort =  "A Odd" 
-                break;
-            
-            case 2 - 1: 
-                str = "even"
-                cohort =  "A Even"
-                break;
-
-            case 3 - 1: 
-                str = "odd"
-                cohort =  "B Odd"
-                break; 
-            
-            case 4 - 1: 
-                str = "even"
-                cohort =  "B Even"
-                break;
-            case 5 - 1: 
-                str = "odd"
-                cohort =  "C Odd"
-                break;
-            
-            case 6 - 1: 
-                str = "even"
-                cohort =  "C Even"
-                break;
-            
+            if (month + "" !== "NaN" && date + "" !== "NaN")
+                document.getElementById("ans").innerHTML = month + "/" + date + " is Cohort " + ABC(schoolDate(month,
+                    date, year));
         }
 
-        var now = new Date();
-        var time = [new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 36 - 6),
-                    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 9, 57 - 6),
-                    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 11, 18 - 6),
-                    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 39 - 6)]
 
 
-        for (var i = 3; i > -1; i--)
-            if (now.getTime() >= time[i].getTime()) {
-                document.getElementById((i + 1) + str).parentElement.style.background = "rgba(144, 238, 144, 0.384)"
-        break;
-}
-        return cohort;
-    }     
-    
-    
-    </script>    
+        function dayOfYear(now) {
+            var start = new Date(now.getFullYear(), 0, 0);
+            return Math.floor(((now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000)) /
+                86400000);
+        }
+
+        function schoolDate(m, d, y) {
+            var weekends = dayOfYear(new Date(y, m - 1, d)) - dayOfYear(new Date(2021, 0, 1)) + dayOfYear(new Date(2020,
+                11, 31)) - dayOfYear(new Date(2020, 8, 21))
+
+            return weekends - Math.floor(weekends / 7) * 2 - holidays(new Date(y, m - 1, d))
+        }
+
+        function holidays(date) {
+            var holidaysArr = [
+                new Date(2020, 9 - 1, 28),
+                new Date(2020, 10 - 1, 12),
+                new Date(2020, 11 - 1, 11),
+                new Date(2020, 11 - 1, 26),
+                new Date(2020, 11 - 1, 27),
+                new Date(2020, 12 - 1, 24),
+                new Date(2020, 12 - 1, 25),
+                new Date(2020, 12 - 1, 26),
+                new Date(2020, 12 - 1, 27),
+                new Date(2020, 12 - 1, 28),
+                new Date(2020, 12 - 1, 29),
+                new Date(2020, 12 - 1, 30),
+                new Date(2020, 12 - 1, 31),
+                new Date(2021, 1 - 1, 1),
+                new Date(2021, 1 - 1, 17),
+                new Date(2021, 2 - 1, 1),
+                new Date(2021, 2 - 1, 12),
+                new Date(2021, 2 - 1, 15),
+                new Date(2021, 2 - 1, 16),
+                new Date(2021, 2 - 1, 17),
+                new Date(2021, 2 - 1, 18),
+                new Date(2021, 2 - 1, 19),
+                new Date(2021, 3 - 1, 29),
+                new Date(2021, 3 - 1, 30),
+                new Date(2021, 3 - 1, 31),
+                new Date(2021, 4 - 1, 1),
+                new Date(2021, 4 - 1, 2),
+                new Date(2021, 5 - 1, 13),
+                new Date(2021, 5 - 1, 31),
+                new Date(2021, 6 - 1, 3)
+
+
+            ]
+
+            for (var i = holidaysArr.length - 1; i > -1; i--)
+                if (holidaysArr[i].getTime() == date.getTime());
+                else if (holidaysArr[i].getTime() < date.getTime())
+                return i
+
+        }
+
+
+        function ABC(date) {
+
+            var str = ""
+            var cohort = ""
+
+            switch (date % 6) {
+                case 1 - 1:
+                    str = "odd"
+                    cohort = "A Odd"
+                    break;
+
+                case 2 - 1:
+                    str = "even"
+                    cohort = "A Even"
+                    break;
+
+                case 3 - 1:
+                    str = "odd"
+                    cohort = "B Odd"
+                    break;
+
+                case 4 - 1:
+                    str = "even"
+                    cohort = "B Even"
+                    break;
+                case 5 - 1:
+                    str = "odd"
+                    cohort = "C Odd"
+                    break;
+
+                case 6 - 1:
+                    str = "even"
+                    cohort = "C Even"
+                    break;
+
+            }
+
+            var now = new Date();
+            var time = [new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 36 - 6),
+                new Date(now.getFullYear(), now.getMonth(), now.getDate(), 9, 57 - 6),
+                new Date(now.getFullYear(), now.getMonth(), now.getDate(), 11, 18 - 6),
+                new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 39 - 6)
+            ]
+
+
+            for (var i = 3; i > -1; i--)
+                if (now.getTime() >= time[i].getTime()) {
+                    document.getElementById((i + 1) + str).parentElement.style.background = "rgba(144, 238, 144, 0.384)"
+                    break;
+                }
+            return cohort;
+        }
+    </script>
 </body>
+
 </html>
